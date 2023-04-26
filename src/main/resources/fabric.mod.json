@@ -1,0 +1,44 @@
+{
+	"schemaVersion": 1,
+	"id": "renewable-ghast-tears",
+	"version": "${version}",
+	"name": "Renewable Ghast Tears",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"lonevox"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/renewable-ghast-tears/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.lonevox.renewableghasttears.RenewableGhastTearsMod"
+		],
+		"client": [
+			"com.lonevox.renewableghasttears.RenewableGhastTearsModClient"
+		],
+		"modmenu": [
+			"com.lonevox.renewableghasttears.integration.ModMenuIntegration"
+		]
+	},
+	"mixins": [
+		"renewable-ghast-tears.mixins.json",
+		{
+			"config": "renewable-ghast-tears.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.14.19",
+		"minecraft": "~1.19.2",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
