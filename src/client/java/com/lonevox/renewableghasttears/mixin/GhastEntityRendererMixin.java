@@ -1,6 +1,6 @@
 package com.lonevox.renewableghasttears.mixin;
 
-import com.lonevox.renewableghasttears.GhastEntityCryingAccessor;
+import com.lonevox.renewableghasttears.GhastEntityAccessor;
 import com.lonevox.renewableghasttears.RenewableGhastTearsMod;
 import net.minecraft.client.render.entity.GhastEntityRenderer;
 import net.minecraft.entity.mob.GhastEntity;
@@ -24,8 +24,8 @@ public abstract class GhastEntityRendererMixin {
 	 * @return An Optional potentially containing an Identifier for a ghast crying texture.
 	 */
 	private static Optional<Identifier> getGhastCryingTexture(GhastEntity ghastEntity) {
-		if (ghastEntity instanceof GhastEntityCryingAccessor ghastEntityCryingAccessor) {
-			if (ghastEntityCryingAccessor.isCrying()) {
+		if (ghastEntity instanceof GhastEntityAccessor ghastEntityAccessor) {
+			if (ghastEntityAccessor.isCrying()) {
 				return Optional.of(ghastEntity.isShooting() ? GHAST_ANGRY_CRYING_TEXTURE : GHAST_CRYING_TEXTURE);
 			}
 		}

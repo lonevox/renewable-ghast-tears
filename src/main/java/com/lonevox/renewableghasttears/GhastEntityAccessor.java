@@ -1,6 +1,6 @@
 package com.lonevox.renewableghasttears;
 
-public interface GhastEntityCryingAccessor {
+public interface GhastEntityAccessor {
 	boolean isCrying();
 
 	void setCrying(boolean crying);

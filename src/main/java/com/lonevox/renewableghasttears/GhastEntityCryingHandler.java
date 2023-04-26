@@ -46,9 +46,9 @@ public class GhastEntityCryingHandler {
 	private static void updateGhastCryingState(GhastEntity ghastEntity) {
 		// If the ghast is in a dimension that it is configured to cry in, make it cry.
 		var worldIsOverworld = ghastEntity.getEntityWorld().getRegistryKey().getValue().equals(new Identifier("overworld"));
-		var ghastEntityCryingAccessor = (GhastEntityCryingAccessor)ghastEntity;
-		ghastEntityCryingAccessor.setCrying(worldIsOverworld);
-		RenewableGhastTearsMod.LOGGER.debug("crying: " + ghastEntityCryingAccessor.isCrying() + " id: " + ghastEntity.getUuidAsString());
+		var ghastEntityAccessor = (GhastEntityAccessor)ghastEntity;
+		ghastEntityAccessor.setCrying(worldIsOverworld);
+		RenewableGhastTearsMod.LOGGER.debug("crying: " + ghastEntityAccessor.isCrying() + " id: " + ghastEntity.getUuidAsString());
 	}
 
 	/**
@@ -56,8 +56,8 @@ public class GhastEntityCryingHandler {
 	 */
 	private static void cryGhastTears() {
 		for (var ghastEntity : ghastEntities) {
-			if (ghastEntity instanceof GhastEntityCryingAccessor ghastEntityCryingAccessor) {
-				ghastEntityCryingAccessor.tryCryGhastTear();
+			if (ghastEntity instanceof GhastEntityAccessor ghastEntityAccessor) {
+				ghastEntityAccessor.tryCryGhastTear();
 			}
 		}
 	}

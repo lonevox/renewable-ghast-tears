@@ -1,6 +1,6 @@
 package com.lonevox.renewableghasttears.mixin;
 
-import com.lonevox.renewableghasttears.GhastEntityCryingAccessor;
+import com.lonevox.renewableghasttears.GhastEntityAccessor;
 import com.lonevox.renewableghasttears.RenewableGhastTearsMod;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.data.DataTracker;
@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(GhastEntity.class)
-public abstract class GhastEntityMixin extends FlyingEntity implements GhastEntityCryingAccessor {
+public abstract class GhastEntityMixin extends FlyingEntity implements GhastEntityAccessor {
 
 	private static final TrackedData<Boolean> CRYING = DataTracker.registerData(GhastEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 	private int ghastTearTime = random.nextInt(500) + 500;
