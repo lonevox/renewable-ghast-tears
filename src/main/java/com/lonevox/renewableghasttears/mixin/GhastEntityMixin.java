@@ -8,6 +8,7 @@ import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.FlyingEntity;
 import net.minecraft.entity.mob.GhastEntity;
+import net.minecraft.item.Items;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -18,6 +19,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class GhastEntityMixin extends FlyingEntity implements GhastEntityCryingAccessor {
 
 	private static final TrackedData<Boolean> CRYING = DataTracker.registerData(GhastEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+	private int ghastTearTime = random.nextInt(500) + 500;
 
 	protected GhastEntityMixin(EntityType<? extends FlyingEntity> entityType, World world) {
 		super(entityType, world);
@@ -32,6 +34,16 @@ public abstract class GhastEntityMixin extends FlyingEntity implements GhastEnti
 	public void setCrying(boolean crying) {
 		this.dataTracker.set(CRYING, crying);
 		RenewableGhastTearsMod.LOGGER.info("SET TO " + crying);
+	}
+
+	@Override
+	public void tryCryGhastTear() {
+		if (isCrying()) {
+			if (--ghastTearTime <= 0) {
+				dropItem(Items.GHAST_TEAR);
+				ghastTearTime = random.nextInt(500) + 500;
+			}
+		}
 	}
 
 	@Inject(at = @At("TAIL"), method = "initDataTracker")
