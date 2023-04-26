@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.Optional;
 
 @Mixin(GhastEntityRenderer.class)
-public abstract class GhastEntityRendererCryingTextureMixin {
+public abstract class GhastEntityRendererMixin {
 	private static final Identifier GHAST_CRYING_TEXTURE = RenewableGhastTearsMod.id("textures/entity/ghast_crying.png");
 	private static final Identifier GHAST_ANGRY_CRYING_TEXTURE = RenewableGhastTearsMod.id("textures/entity/ghast_crying_shooting.png");
 

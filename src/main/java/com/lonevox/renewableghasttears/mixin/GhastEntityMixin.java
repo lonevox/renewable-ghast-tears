@@ -15,11 +15,11 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(GhastEntity.class)
-public abstract class GhastEntityCryingMixin extends FlyingEntity implements GhastEntityCryingAccessor {
+public abstract class GhastEntityMixin extends FlyingEntity implements GhastEntityCryingAccessor {
 
 	private static final TrackedData<Boolean> CRYING = DataTracker.registerData(GhastEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
-	protected GhastEntityCryingMixin(EntityType<? extends FlyingEntity> entityType, World world) {
+	protected GhastEntityMixin(EntityType<? extends FlyingEntity> entityType, World world) {
 		super(entityType, world);
 	}
 
