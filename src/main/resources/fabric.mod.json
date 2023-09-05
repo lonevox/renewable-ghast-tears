@@ -39,6 +39,7 @@
 		"fabric-api": "*"
 	},
 	"suggests": {
-		"another-mod": "*"
+		"yet-another-config-lib": "~2.2.0-for-1.19.2",
+		"modmenu": "~4.2.0-beta.2"
 	}
 }
