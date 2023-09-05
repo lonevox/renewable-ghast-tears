@@ -3,7 +3,6 @@ package com.lonevox.renewableghasttears;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.entity.mob.GhastEntity;
-import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 
 import java.util.HashSet;
