@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.entity.mob.GhastEntity;
 import net.minecraft.util.Identifier;
+import net.minecraft.world.World;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -45,9 +46,9 @@ public class GhastEntityCryingHandler {
 	 */
 	private static void updateGhastCryingState(GhastEntity ghastEntity) {
 		// If the ghast is in a dimension that it is configured to cry in, make it cry.
-		var worldIsOverworld = ghastEntity.getEntityWorld().getRegistryKey().getValue().equals(new Identifier("overworld"));
+		var worldKey = ghastEntity.getEntityWorld().getRegistryKey();
 		var ghastEntityAccessor = (GhastEntityAccessor)ghastEntity;
-		ghastEntityAccessor.setCrying(worldIsOverworld);
+		ghastEntityAccessor.setCrying(worldKey.equals(World.OVERWORLD));
 		RenewableGhastTearsMod.LOGGER.debug("crying: " + ghastEntityAccessor.isCrying() + " id: " + ghastEntity.getUuidAsString());
 	}
 
